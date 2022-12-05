@@ -1,0 +1,24 @@
+<h1>구매화면</h1>
+<form>
+    <table class="table">
+        <tr>
+            <td colspan="2"><img src="/images<%=results[0].img%>" style="width: 200px;height:300px; "></td>
+        </tr>
+        <tr>
+            <td><%=results[0].name%></td>
+            <td>저자 : <%=results[0].publisher%></td>
+        </tr>
+        <tr>
+            <td><%=results[0].price%> 원</td>
+            <td>수량 : <%=results[0].qty%></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" formaction="/purchase/purchase_confirm/<%=results[0].purchaseid%>" formmethod="get">구매확정</button>
+            </td>
+            <td>
+                <button type="submit" formaction="/purchase/purchase_cancel/<%=results[0].purchaseid%>" formmethod="get">구매취소</button>
+            </td>
+        </tr>
+    </table>
+</form>

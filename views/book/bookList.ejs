@@ -1,0 +1,21 @@
+<h1>Book</h1>
+<table class="table table-sm table-bordered" style="width : 600px">
+    <% var i=0; while(i < results.length) { %>
+    <tr>
+        <td>
+            <img src="/images<%=results[i].img%>" style="width:100px;height:100px; ">
+        </td>
+        <td>
+            <a href="/book_detail/<%=results[i].id%>"><%=results[i].name%></a>
+        </td>
+        <td>
+            <%=results[i].description%>
+        </td>
+        <td>
+            <%=results[i].price%>원
+        </td>
+        <td><a href="/book/update/<%=results[i].id%>">update</a></td>
+        <td><a href="/book/delete_process/<%=results[i].id%>">delete</a></td>
+    </tr>
+    <% i++; } %>
+</table>

@@ -1,0 +1,36 @@
+<% if (kindOfDoc=='C' ) { %>
+    <h1>Book Create</h1> 
+    <form action="/book/create_process" method="post">
+<% }else{ %>
+    <h1>Book Update</h1>
+    <form action="/book/update_process/<%=bId%>" method="post">
+<% } %>
+        <p><input type="text" name="name" value="<%=name%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="name"></p>
+        <p><input type="text" name="publisher" value="<%=publisher%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="publisher"></p>
+        <p><input type="text" name="author" value="<%=author%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="author"></p>
+        <p><input type="number" name="stock" value="<%=stock%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="stock"></p>
+        <p><input type="text" name="pubdate" value="<%=pubdate%>" maxlength="8"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="pubdate"></p>
+        <p><input type="number" name="pagenum" value="<%=pagenum%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="pagenumber"></p>
+        <p><input type="text" name="isbn" value="<%=isbn%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="ISBN"></p>
+        <p><input type="text" name="ebook" value="<%=ebook%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="Y or N"></p>
+        <p><input type="text" name="kdc" value="<%=kdc%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="KDC"></p>
+        <p><input type="text" name="image" value="<%=image%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="image주소.jpg"></p>
+        <p><input type="number" name="price" value="<%=price%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="price"></p>
+        <p><input type="text" name="nation" value="<%=nation%>"
+            style=" width : 400px; bordercolor:antiquewhite;" placeholder="nation"></p>
+        <p><textarea name="description" placeholder="description" cols="60"
+            style=" bordercolor:antiquewhite;"><%=description%></textarea></p>
+        <p>by <%=id%></p>
+        <p><input type="submit"></p>
+    </form>

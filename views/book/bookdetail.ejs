@@ -1,0 +1,41 @@
+<form>
+    <table class="table">
+        <tr>
+            <td colspan="2"><img src="/images<%=img%>" style="width: 200px;height:300px; "></td>
+        </tr>
+        <tr>
+            <td><%=name%></td>
+            <td>저자 : <%=publisher%></td>
+        </tr>
+        <tr>
+            <td><%=price%> 원</td>
+        <% if(loggined === true) { %>
+                <td>수량 : <input type="text" name="qty" placeholder="<%=stock%>"></td>
+                <input type="hidden" name="name" value="<%=bookid%>">
+                <input type="hidden" name="price" value="<%=price%>">
+            </tr>
+        <tr>
+            <td>
+                <button type="submit" formaction="/cart/cart_process" formmethod="post">장바구니</button>
+            </td>
+            <td>
+                <button type="submit" formaction="/purchase_process" formmethod="post">구매</button>
+            </td>
+        </tr>
+        
+        <%} else {%>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" formaction="/login">장바구니</button>
+            </td>
+            <td>
+                <button type="submit" formaction="/login">구매</button>
+            </td>
+        </tr>
+        <%}%>
+    </table>
+
+
+
+</form>

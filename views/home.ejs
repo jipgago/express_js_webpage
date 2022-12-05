@@ -1,0 +1,24 @@
+<!doctype html>
+    <html>
+        <head>
+            <title>WEB1 - <%= title %></title>
+            <meta charset="utf8">
+        </head>
+        <body>
+            <h1><a href="/">WEB</a></h1>
+            <hr>
+            <a href="/author">author</a>
+            
+            <ul>
+                <% i = 0;
+                    while(i < list.length) {
+                        %>
+                        <li><a href="/page/<%=list[i].id %>"><%= list[i].title %></a></li>
+                    <%  i+= 1;
+                    }
+                %>
+            </ul>
+            <%- control %>
+            <%- body %>
+        </body>
+    </html>

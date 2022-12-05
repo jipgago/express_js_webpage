@@ -1,0 +1,59 @@
+<h1><%=user%> Cart</h1>
+    <table class="table">
+        <tr>
+            <td>
+                이미지
+            </td>
+            <td>
+                이름
+            </td>
+            <td>
+                가격
+            </td>
+            <td>
+                갯수
+            </td>
+            <td>
+                총 가격
+            </td>
+            <td>
+                장바구니 삭제
+            </td>
+            <td>
+                구매 창
+            </td>
+        </tr>
+        <% var i = 0; 
+        while(i < results.length) { %>
+    <form>
+        <tr>
+            <td>
+                <img src="/images<%=results[i].img%>" style="width:100px; height: 100px;">
+            </td>
+            <td>
+                <%=results[i].name%>                        
+            </td>
+            <td>
+                <%=results[i].price%>
+            </td>
+            <td>
+                <%=results[i].qty%>
+            </td>
+            <td>
+                <%var cost = 0; cost += parseInt(results[i].price) * parseInt(results[i].qty);%>
+                <%=cost%>
+            </td>
+            <td>
+                <button type="submit" formaction="/cart/delete_process/<%=results[i].cartid%>" formmethod="get">카트에서 삭제</button>        
+            </td>
+            <td>
+                <button type="submit" formaction="/purchase_process" formmethod="post">구매PAGE 이동</button>
+                <input type="hidden" name="name" value="<%=results[i].bookid%>">
+                <input type="hidden" name="price" value="<%=results[i].price%>">
+                <input type="hidden" name="qty" value="<%=results[i].qty%>">
+                <input type="hidden" name="cartid" value="<%=results[i].cartid%>">    
+            </td>   
+        </tr>
+    </form>
+        <% i++ }%>
+    </table>

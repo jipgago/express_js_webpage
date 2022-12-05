@@ -1,0 +1,31 @@
+
+    <h1><%=kind%>  </h1> <!--제목활성화-->
+    <div style = "text-align: right;width : 1100px;">
+       <% if(loggined === true) { %> <!--로그인 확인-->
+        <a href='/board/create'><input type="button" value="글쓰기"></a>
+       <%}%>
+    </div>
+    <table class="table">
+        <!--board table에서 가져온 값들을 반복문으로 출력-->
+      <%  var i = 0;
+          while(i < board.length) {
+      %> 
+            <tr><td><%=board[i].name%></td>
+                <td><a href='/board/view/<%=board[i].id%>/<%=pageNum%>'><%=board[i].title%></a></td>
+                <td><%=board[i].date%></td>
+            </tr>
+      <% 
+             i++; 
+          }  
+      %>
+    </table>
+    <!--페이지를 반복문으로 출력-->
+    <%  var j = 1;
+        while (j <= totalpages) { 
+            if(j == pageNum){ %> <!--현재 페이지와 같으면 선택못하게-->
+                <span style="font-weight : bold;"><%=j%></span> &nbsp;&nbsp;
+            <% } else { %> <!--현재페이지와 다르면 그곳으로 갈 수 있도록 선택 가능하게-->
+                <span><a href="/board/list/<%=j%>"><%=j%></a></span> &nbsp;&nbsp;
+     <%     } 
+            j++ 
+        } %>

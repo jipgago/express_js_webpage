@@ -1,0 +1,73 @@
+<h1><%=id%>'s Order List</h1>
+<form>
+<table class="table table-sm table-bordered" style="margin-left: auto; margin-right: auto; text-align: center; vertical-align: middle;">
+<%if(cls == 'A') {%>
+    <% var i = 0; while(i < results.length) { %>
+    <tr>
+        <td>
+            <%=results[i].custid%>
+        </td>
+        <td>
+            <%=results[i].purchasedate%>
+        </td>
+        <td>
+            <img src="/images<%=results[i].img%>" style="width:100px;height:100px; ">
+        </td>
+        <td>
+            <%=results[i].name%>
+        </td>
+        <td>
+            <%=results[i].price%>원
+        </td>
+        <td>
+            <%=results[i].qty%>개
+        </td>
+        <td>
+            <% var cost; cost = results[i].price * results[i].qty%>
+            총 <%=cost%>원
+        </td>
+        <td>
+            <button type="submit" formaction="/order/update/<%=results[i].purchaseid%>" formmethod="get">수정</button>  
+        </td>
+        <td>
+            <button type="submit" formaction="/order/delete_process/<%=results[i].purchaseid%>" formmethod="get">삭제</button>  
+        </td>
+
+    </tr>
+    <% i++ } %>
+</table>
+</form>
+<% } else {%>
+    <%var i = 0; while(i < results.length) { %>
+    <tr>
+        <td>
+            <img src="/images<%=results[i].img%>" style="width:100px;height:100px; ">
+        </td>
+        <td>
+            <%=results[i].purchasedate%>
+        </td>
+        <td>
+            <%=results[i].name%>
+        </td>
+        <td>
+            <%=results[i].price%>원
+        </td>
+        <td>
+            <%=results[i].qty%>개
+        </td>
+        <td>
+            <% var cost = 0; cost += results[i].price * results[i].qty%>
+            총 <%=cost%>원
+        </td>
+        <td>
+            <%if(results[i].refund == 'Y' && results[i].cancel == 'N') {%>
+                <button type="submit" formaction="/order/update/<%=results[i].purchaseid%>" formmethod="get">구매확정</button>
+            <%} else if(results[i].refund == 'N' && results[i].cancel == 'Y') {%>
+                <button type="submit" formaction="/order/update/<%=results[i].purchaseid%>" formmethod="get">구매취소</button>
+            <% } %>
+        </td>
+    </tr>
+    <% i++ } %>
+</table> 
+</form>
+<% } %>

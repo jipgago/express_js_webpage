@@ -1,0 +1,48 @@
+<% if(kindOfDoc=='C') { %>
+  <h1>User Create</h1>
+  <form action="/user/create_process" method="post">
+<% } else { %>
+  <h1>User Update</h1>
+  <form action="/user/update_process/<%=loginid%>" method="post">
+<% } %>
+    <p>
+      <label>로그인 ID *</label>
+      <input type="id" value="<%=loginid%>" class="form-control" placeholder="ID" name="loginid" maxlength="20">
+    </p>
+    <p>
+      <label>Password *</label>
+      <input type="password" value="<%=password%>" class="form-control" id="inputPassword3" name="password" maxlength="20">
+    </p>
+
+    <p>
+      <label>이름 *</label>
+      <input type="id" value="<%=name%>" class="form-control" placeholder="이름" name="name">
+    </p>
+
+    <p>
+      <label>주소</label>
+      <input type="id" value="<%=address%>" class="form-control" placeholder="25자 이하" name="address">
+    </p>
+
+    <p>
+      <label>전화번호 *</label>
+      <input type="id" value="<%=tel%>" class="form-control" placeholder="000-0000-0000" name="tel">
+    </p>
+
+    <p>
+      <label>생일 *</label>
+      <input type="id" value="<%=birth%>" class="form-control" placeholder="00000000" name="birth">
+    </p>
+
+    <p>
+      <label>클래스 *</label>
+      <input type="id" value="<%=results[0].class%>" class="form-control" name="class">
+    </p>
+
+    <p>
+      <label>grade *</label>
+      <input type="id" value="<%=results[0].grade%>" class="form-control" name="grade">
+    </p>
+
+    <button type="submit" class="btn btn-primary">submit</button>
+  </form>
